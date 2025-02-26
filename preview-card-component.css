@@ -1,0 +1,233 @@
+
+:root{
+/*Primary*/
+--Soft-blue: hsl(215, 51%, 70%);
+--Cyan: hsl(178, 100%, 50%);
+--beforeBG: hsla(178, 100%, 50%, 0.5);
+
+/*Neutral*/
+--VDB-mainBG: hsl(217, 54%, 11%);
+--VDB-Shadow: hsl(217, 54%, 10%);
+--VDB-lastShadow: hsl(217, 54%, 10.6%);
+--VDB-cardBG: hsl(216, 50%, 16%);
+--VDB-line: hsl(215, 32%, 27%);
+--White: hsl(0, 0%, 100%); 
+
+
+
+
+/*Font-size*/
+--fs-paragraph: 18px;
+--fs-item:15px;
+--fs-item-description: 13px;
+
+/*font-weight*/
+--fw300:300;
+--fw400:400;
+--fw600:600;
+}
+
+*,
+::after,
+::before{
+    box-sizing:border-box;
+    padding:0;
+    margin:0;
+}
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background: var(--VDB-mainBG);
+    flex-direction:column;
+    font-family: "Outfit", sans-serif;
+    position:relative;
+
+}
+.last-shadow{
+    width: calc(250px + 80px);
+    height: calc(431px + 100px);
+    position:absolute;
+    background: var(--VDB-lastShadow);
+    z-index: -2;
+    top: 50%;
+    left:50%;
+    right:0;
+    bottom:0;
+    transform: translate(-50%, -46%);
+    border-radius: 40px;
+
+}
+.first-shadow{
+    width: calc(250px + 20px);
+    height: calc(431px + 20px);
+    position:absolute;
+    background: var(--VDB-Shadow);
+    z-index: -1;
+    top: 50%;
+    left:50%;
+    right:0;
+    bottom:0;
+    transform: translate(-50%, -43%);
+    border-radius: 40px;
+}
+
+main{
+    width:100%;
+    max-width:250px;
+    height:431px;
+    padding:1rem;
+    background: var(--VDB-cardBG);
+    position: relative;
+    border-radius:10px; 
+    z-index:1;
+}
+
+.primary-image{
+    overflow:hidden;
+    position:relative;
+    z-index: 1;
+    border-radius: 10px;
+    transition: 0.3s ease;
+    
+}
+
+.primary-BG{
+    position: relative;
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    border-radius:inherit;
+    cursor: pointer;
+    display:block;
+    z-index: 1;
+    
+
+}
+.primary-image::before{
+  content:'';
+  background: var(--beforeBG);
+  object-fit: cover;
+  position: absolute;
+  width:100%;
+  height:100%;
+  inset:0;
+  display: block;
+  z-index: 2;
+  border-radius: inherit;
+  opacity:0;
+}
+.primary-image::after{
+    content:'';
+    background-image: url(icon-view.svg);
+    object-fit: cover;
+    position: absolute;
+    width:100%;
+    height: 100%;
+    display: block;
+    z-index: 3;
+    border-radius: inherit;
+    background-repeat:no-repeat;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    background-position: center;
+    opacity:0;
+}
+.primary-image:hover::before,
+.primary-image:hover::after{
+    opacity:1;
+}
+
+header{
+    margin:1rem 0px;
+    color: var(--Soft-blue);
+}
+.code-number{
+    color: var(--Soft-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    
+    
+}
+.code-number:hover{
+  color: gold;
+  text-shadow: 0 0 10px(255, 215, 0, 0.9);
+}
+
+.item{
+    font-size: var(--fs-item);
+}
+.item-description{
+    font-size: var(--fs-item-description);
+    color: var(--Soft-blue);
+    margin-top: 0.8rem;
+    font-size:13px;
+    line-height: 20px;
+}
+.card-content{
+    font-size: 12px;
+    font-weight: var(--fw400);
+    color: var(--Soft-blue);
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top:20px;
+    border-bottom: 1px solid var(--VDB-line);
+    padding-bottom: 1rem ;
+    margin-top:-2px;
+}
+.price{
+    font-weight: var(--fw600);
+    font-size: 12px;
+
+}
+.time{
+    font-weight: var(--fw400);
+    font-size: 12px;
+}
+.ethereum{
+    display: flex;
+    align-items:center;
+    gap:5px;
+}
+.clock{
+    display: flex;
+    align-items:center;
+    gap:5px;
+}
+.creator-footer{
+    display: flex;
+    align-items:center;
+    margin-top: 1rem;
+    gap:.6rem;
+}
+.creator-pic{
+    border-radius: 12px;
+    border:solid 2px var(--White);
+}
+.creator{
+    font-size: 12px;
+    color: var(--Soft-blue);
+    font-weight: var(--fw400);
+}
+.name{
+    font-size:13px;
+    color: var(--White);
+    font-style: normal;
+    cursor:pointer;
+    text-shadow: 0 0 10 rgba(255, 215, 0, 0);
+    transition: text-shadow 0.3s ease;
+}
+.name:hover{
+    color: gold;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    
+}
+.attribution{
+    color: var(--Soft-blue);
+    margin-top: 42rem;
+    position: absolute;
+    
+}
